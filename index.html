@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>一份迟交的周测试卷</title>
+<meta name="description" content="徐州中学 2023—2024学年度 高三年级数学周测（第42次）">
+<meta name="theme-color" content="#fbf7ec">
+<style>
+:root{
+  --paper:#fbf7ec;
+  --ink:#1c1a17;
+  --ink-soft:#4a463f;
+  --muted:#8a8172;
+  --red:#b3261e;
+  --line:#d9d2c2;
+  --serif:"Songti SC","SimSun","STSong","Noto Serif CJK SC",serif;
+  --kai:"Kaiti SC","KaiTi","STKaiti","Kaiti TC",cursive;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  background:#e9e3d5;
+  color:var(--ink);
+  font-family:var(--serif);
+  font-size:17px;
+  line-height:1.9;
+  -webkit-text-size-adjust:100%;
+  overflow-x:hidden;
+}
+button{font:inherit;color:inherit}
+.paper{
+  position:relative;
+  max-width:480px;
+  margin:0 auto;
+  min-height:100vh;
+  padding:0 24px 64px;
+  background:
+    radial-gradient(1100px 520px at 50% -8%, rgba(255,255,255,.72), transparent 62%),
+    repeating-linear-gradient(0deg, rgba(120,110,90,.026) 0 1px, transparent 1px 5px),
+    var(--paper);
+  box-shadow:0 0 44px rgba(60,50,30,.13);
+}
+.seal-line{
+  position:absolute;
+  left:5px;
+  top:0;
+  bottom:0;
+  width:15px;
+  padding-top:150px;
+  border-right:1px dashed #cfc6b4;
+  color:#b9b0a0;
+  font-size:10px;
+  letter-spacing:6px;
+  writing-mode:vertical-rl;
+  text-align:center;
+  pointer-events:none;
+  user-select:none;
+}
+.head{text-align:center;padding-top:36px}
+.school{font-size:27px;font-weight:700;letter-spacing:9px;margin-left:9px}
+.exam-title{font-size:14px;margin-top:10px;letter-spacing:1px}
+.exam-sub{font-size:13px;color:#5b554a;margin-top:2px}
+.exam-sub b{color:var(--red);font-size:15px}
+.meta{
+  display:flex;
+  justify-content:space-between;
+  gap:6px;
+  flex-wrap:wrap;
+  font-size:13.5px;
+  margin-top:20px;
+  padding-top:11px;
+  border-top:1px solid var(--line);
+}
+.score-blank{
+  display:inline-block;
+  min-width:2.6em;
+  height:1.15em;
+  border-bottom:1px solid var(--ink);
+  vertical-align:baseline;
+  text-align:center;
+  font-family:var(--kai);
+  font-size:1.3em;
+  line-height:1.15;
+  color:var(--red);
+}
+.score-blank.written{transform:rotate(-2deg);border-bottom-color:var(--red)}
+.notice{
+  font-size:13px;
+  color:#5b554a;
+  margin-top:12px;
+  padding:9px 0;
+  border-top:1px dashed var(--line);
+  border-bottom:1px dashed var(--line);
+}
+.notice b{color:var(--ink)}
+
+.start-wrap{text-align:center;margin:34px 0 8px}
+.seal-btn{
+  width:118px;height:118px;
+  border-radius:50%;
+  border:3px double var(--red);
+  background:transparent;
+  color:var(--red);
+  font-family:var(--kai);
+  font-size:23px;
+  line-height:1.18;
+  letter-spacing:2px;
+  cursor:pointer;
+  transform:rotate(-8deg);
+  box-shadow:inset 0 0 0 5px rgba(179,38,30,.04);
+  transition:transform .25s ease,opacity .45s ease;
+}
+.seal-btn:active{transform:rotate(-8deg) scale(.94)}
+.seal-btn.done{opacity:0;transform:rotate(-8deg) scale(1.35);pointer-events:none}
+.start-hint{font-size:12px;color:var(--muted);margin:14px 0 0;letter-spacing:2px}
+.start-sub{font-size:12.5px;color:#a89e8d;margin:4px 0 0;letter-spacing:1px}
+
+.divider{
+  height:1px;
+  margin:30px 0 0;
+  background:repeating-linear-gradient(90deg,var(--line) 0 6px,transparent 6px 12px);
+}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .75s ease,transform .75s ease}
+.reveal.in{opacity:1;transform:none}
+
+.q{margin:44px 0}
+.q-head{display:flex;align-items:baseline;gap:7px;font-size:18px;font-weight:700}
+.q-no{font-size:20px}
+.q-type{font-size:15px;font-weight:400;color:#5b554a}
+.pts{font-size:13px;color:var(--muted);font-weight:400}
+.q-body{margin:11px 0 17px;font-size:17px}
+.options{display:flex;flex-direction:column;gap:10px}
+.opt{
+  display:flex;align-items:center;gap:8px;
+  width:100%;
+  padding:12px 14px;
+  border:1px solid #cfc6b4;
+  border-radius:4px;
+  background:rgba(255,255,255,.38);
+  font-family:var(--serif);
+  font-size:16px;
+  color:var(--ink);
+  text-align:left;
+  cursor:pointer;
+  transition:background .2s,border-color .2s,color .2s;
+}
+.opt:active{background:rgba(179,38,30,.04)}
+.opt b{font-weight:700}
+.opt.correct{border-color:var(--red);background:rgba(179,38,30,.045)}
+.opt.correct::after{
+  content:"√";
+  margin-left:auto;
+  font-family:var(--kai);
+  font-size:27px;
+  line-height:1;
+  color:var(--red);
+  transform:rotate(-7deg);
+}
+.opt.wrong{animation:shake .45s;border-color:#c98b86;color:#8a5a55}
+@keyframes shake{
+  0%,100%{transform:translateX(0)}
+  20%{transform:translateX(-5px)}
+  40%{transform:translateX(5px)}
+  60%{transform:translateX(-3px)}
+  80%{transform:translateX(3px)}
+}
+.note{
+  margin-top:14px;
+  padding:12px 14px;
+  border-left:3px solid var(--red);
+  background:rgba(179,38,30,.035);
+  font-size:15px;
+  line-height:1.85;
+  color:#3d3932;
+  opacity:0;
+  transform:translateY(6px);
+  transition:opacity .5s ease,transform .5s ease;
+}
+.note.in{opacity:1;transform:none}
+.note p{margin:0}
+.note p + p{margin-top:3px}
+.note-main{font-family:var(--kai);color:var(--red);font-size:20px;line-height:1.5;margin-bottom:3px !important}
+
+.quote{font-size:17px;line-height:2.2;margin:4px 0 0}
+.blank{display:inline-block;width:5.1em;vertical-align:baseline}
+.blank input{
+  width:100%;
+  padding:5px 2px 3px;
+  border:0;
+  border-bottom:1.5px solid var(--ink);
+  background:transparent;
+  font-family:var(--kai);
+  font-size:19px;
+  line-height:1.4;
+  color:var(--red);
+  text-align:center;
+  outline:none;
+}
+.blank input:focus{border-bottom-color:var(--red);background:rgba(179,38,30,.03)}
+.tiny-link{
+  display:block;
+  margin:14px 0 0 auto;
+  padding:6px 0;
+  border:0;
+  background:none;
+  color:var(--muted);
+  font-family:var(--serif);
+  font-size:12.5px;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  cursor:pointer;
+}
+.red-line{
+  display:flex;
+  align-items:baseline;
+  justify-content:flex-end;
+  gap:12px;
+  margin-top:8px;
+  opacity:0;
+  transform:translateX(9px);
+  transition:opacity .5s ease,transform .5s ease;
+}
+.red-line.in{opacity:1;transform:none}
+.hand{font-family:var(--kai);color:var(--red);font-size:23px;transform:rotate(-3deg)}
+.comment{font-family:var(--kai);color:var(--red);font-size:14px;opacity:.82}
+
+.proof{
+  margin-top:12px;
+  padding:14px 16px;
+  border:1px dashed #cfc6b4;
+  background:rgba(255,255,255,.36);
+}
+.proof .line{
+  margin:6px 0;
+  font-size:16px;
+  line-height:1.95;
+  opacity:0;
+  transform:translateY(7px);
+  transition:opacity .5s ease,transform .5s ease;
+  transition-delay:calc(var(--i) * .3s + .35s);
+}
+#q3.in .proof .line{opacity:1;transform:none}
+.proof .line b{font-weight:700}
+.mark{
+  display:block;
+  margin-top:12px;
+  text-align:right;
+  font-family:var(--kai);
+  color:var(--red);
+  font-size:26px;
+  transform:rotate(-6deg) scale(1.7);
+  opacity:0;
+  transition:opacity .35s ease,transform .45s cubic-bezier(.2,1.5,.4,1);
+  transition-delay:2.35s;
+}
+#q3.in .mark{opacity:1;transform:rotate(-6deg) scale(1)}
+
+.tf{display:flex;gap:14px;margin-top:8px}
+.tf-btn{
+  width:66px;height:54px;
+  border:1.5px solid #cfc6b4;
+  border-radius:4px;
+  background:rgba(255,255,255,.38);
+  font-family:var(--kai);
+  font-size:31px;
+  line-height:1;
+  color:var(--ink);
+  cursor:pointer;
+  transition:border-color .2s,color .2s,background .2s,transform .2s;
+}
+.tf-btn:active{transform:scale(.95)}
+.tf-btn.correct{
+  border-color:var(--red);
+  color:var(--red);
+  background:rgba(179,38,30,.05);
+  transform:rotate(-4deg);
+}
+.tf-btn.wrong{animation:shake .45s;border-color:#c98b86;color:#8a5a55}
+
+.graph-card{
+  margin:16px 0 6px;
+  border:1px solid #cfc6b4;
+  border-radius:4px;
+  background:#fffdf7;
+  overflow:hidden;
+}
+#graph{display:block;width:100%;height:auto}
+.graph-caption{font-size:12px;color:var(--muted);text-align:right;margin:5px 2px 0}
+#graph .draw{
+  fill:none;
+  stroke:#2a2724;
+  stroke-width:1.6;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+  stroke-dasharray:1000;
+  stroke-dashoffset:1000;
+}
+#graph .faint{stroke:#a39a8b;stroke-width:.8}
+#graph .redline{stroke:var(--red);stroke-opacity:.38;stroke-width:1}
+#graph .sheet{fill:#fffdf7}
+#graph .torch{fill:#f3ead6}
+#graph .beam{fill:url(#beamGrad);stroke:none;opacity:0}
+#graph .spot{fill:url(#spotGrad);opacity:0}
+#graph .hand-text{font-family:var(--kai);font-size:21px;fill:var(--red);opacity:0}
+#q5.graph-in #graph .draw{animation:draw 1.05s ease forwards;animation-delay:var(--d)}
+#q5.graph-in #graph .beam{animation:fadeIn .9s ease forwards;animation-delay:1.45s}
+#q5.graph-in #graph .spot{animation:fadeIn 1s ease forwards;animation-delay:1.85s}
+#q5.graph-in #graph .hand-text{animation:fadeIn .9s ease forwards;animation-delay:2.3s}
+@keyframes draw{to{stroke-dashoffset:0}}
+@keyframes fadeIn{to{opacity:1}}
+.q5-note .note-main{font-size:17.5px}
+
+.submit-wrap{text-align:center;margin:34px 0 8px}
+.submit-btn{
+  padding:11px 34px 11px 42px;
+  border:2px solid var(--red);
+  border-radius:40px;
+  background:transparent;
+  color:var(--red);
+  font-family:var(--kai);
+  font-size:22px;
+  letter-spacing:8px;
+  cursor:pointer;
+  transition:transform .2s,background .2s;
+}
+.submit-btn:active{transform:scale(.96);background:rgba(179,38,30,.05)}
+
+.ending{padding-top:46px;text-align:center}
+.stamp-wrap{margin:16px 0 26px}
+.stamp-score{
+  display:inline-flex;
+  flex-direction:column;
+  align-items:center;
+  padding:10px 20px 7px;
+  border:3px double var(--red);
+  border-radius:5px;
+  color:var(--red);
+  transform:rotate(-8deg) scale(1.9);
+  opacity:0;
+  transition:transform .55s cubic-bezier(.2,1.5,.4,1),opacity .25s ease;
+}
+.ending.in .stamp-score{transform:rotate(-8deg) scale(1);opacity:.92}
+.stamp-score small{font-family:var(--kai);font-size:13px;letter-spacing:7px;margin-left:7px;line-height:1.3}
+.stamp-score strong{font-family:var(--kai);font-size:35px;font-weight:400;line-height:1.12;letter-spacing:1px}
+.stamp-score strong span{font-size:18px}
+.comment-hand{
+  font-family:var(--kai);
+  color:var(--red);
+  font-size:23px;
+  line-height:1.65;
+  margin:0 0 32px;
+  transform:rotate(-2deg);
+}
+.letter{
+  text-align:left;
+  font-size:16.5px;
+  line-height:2.05;
+  padding-top:24px;
+  border-top:1px dashed var(--line);
+}
+.letter p{margin:0 0 12px;text-indent:2em}
+.letter p:first-child{text-indent:0}
+.letter .sign{
+  margin-top:22px;
+  text-align:right;
+  text-indent:0;
+  font-family:var(--kai);
+  font-size:15.5px;
+  white-space:nowrap;
+  color:#3d3932;
+}
+.final-line{
+  margin:30px 0 0;
+  font-size:12.5px;
+  color:var(--muted);
+  letter-spacing:1px;
+}
+@media (max-width:360px){
+  .paper{padding:0 17px 54px}
+  .seal-line{display:none}
+  .school{font-size:23px;letter-spacing:6px;margin-left:6px}
+  .meta{font-size:12.5px}
+  .q-body{font-size:16.5px}
+}
+@media (min-width:600px){
+  body{padding:32px 0}
+  .paper{border-radius:2px;box-shadow:0 12px 55px rgba(60,50,30,.17)}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms !important;transition-duration:.01ms !important}
+}
+body.static *{animation-duration:.01ms !important;transition-duration:.01ms !important}
+body.static #graph .draw{animation:none !important;stroke-dashoffset:0 !important}
+body.static #graph .beam,
+body.static #graph .spot,
+body.static #graph .hand-text{animation:none !important;opacity:1 !important}
+</style>
+</head>
+<body>
+<main class="paper">
+  <div class="seal-line" aria-hidden="true">密封线内不要答题</div>
+
+  <header class="head reveal in">
+    <div class="school">徐州中学</div>
+    <div class="exam-title">2023—2024学年度　高三年级数学周测</div>
+    <div class="exam-sub">（第 <b>42</b> 次）</div>
+    <div class="meta">
+      <span>班级：高三(16)班</span>
+      <span>姓名：董晨曦</span>
+      <span>得分：<span class="score-blank" id="headScore"></span></span>
+    </div>
+    <div class="notice">本试卷共 5 题，满分 150 分，考试时间：<b>三年</b>。</div>
+  </header>
+
+  <div class="start-wrap">
+    <button class="seal-btn" id="startBtn" aria-label="开始答题"><span>开始<br>答题</span></button>
+    <p class="start-hint">点击启封</p>
+    <p class="start-sub">一份迟交了三年的周测卷</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <section class="q reveal" id="q1">
+    <div class="q-head"><span class="q-no">1.</span><span class="q-type">选择题</span><span class="pts">（3 分）</span></div>
+    <p class="q-body">下列哪个时间点，聂老师最可能出现在男生宿舍？</p>
+    <div class="options">
+      <button class="opt" data-correct="false"><b>A.</b> 周三下午，第三节数学课</button>
+      <button class="opt" data-correct="true"><b>B.</b> 晚自习结束后半小时</button>
+      <button class="opt" data-correct="false"><b>C.</b> 周日早上，办公室</button>
+      <button class="opt" data-correct="false"><b>D.</b> 月考当天中午</button>
+    </div>
+    <div class="note" id="q1note" hidden>
+      <p class="note-main">晚自习结束后半小时。</p>
+      <p>宿舍的桌子，三十分钟到四十分钟。熄灯了，就打手电筒。</p>
+    </div>
+  </section>
+
+  <section class="q reveal" id="q2">
+    <div class="q-head"><span class="q-no">2.</span><span class="q-type">填空题</span><span class="pts">（3 分）</span></div>
+    <p class="q-body">一模之后，您在宿舍对我们说：</p>
+    <p class="quote">“一定要好好学数学。<br>文科生拉分，最主要的是<span class="blank"><input id="blankInput" type="text" maxlength="8" aria-label="填空作答"></span>。”</p>
+    <button class="tiny-link" id="revealBlank" hidden>想不起来？点这里</button>
+    <div class="red-line" id="q2answer" hidden>
+      <span class="hand">数学分数</span>
+      <span class="comment">意思对了，给满分。</span>
+    </div>
+  </section>
+
+  <section class="q reveal" id="q3">
+    <div class="q-head"><span class="q-no">3.</span><span class="q-type">解答题</span><span class="pts">（12 分）</span></div>
+    <p class="q-body">已知：一模成绩位于本科线下。<br>求证：高考可以到一本线上。</p>
+    <div class="proof">
+      <p class="line" style="--i:0"><b>证明：</b></p>
+      <p class="line" style="--i:1">∵　一模，本科线下。</p>
+      <p class="line" style="--i:2">∵　那个晚上，熄灯了，您打着手电筒，又讲了三四十分钟。</p>
+      <p class="line" style="--i:3">∵　从那以后，我开始把数学当回事。</p>
+      <p class="line" style="--i:4">∴　高考，一本线上。</p>
+      <p class="line" style="--i:5">证毕。</p>
+    </div>
+    <span class="mark">√ 12 分</span>
+  </section>
+
+  <section class="q reveal" id="q4">
+    <div class="q-head"><span class="q-no">4.</span><span class="q-type">判断题</span><span class="pts">（3 分）</span></div>
+    <p class="q-body">（　）一次宿舍讲题，最多只能记到高考。</p>
+    <div class="tf">
+      <button class="tf-btn" data-v="true" aria-label="正确">√</button>
+      <button class="tf-btn" data-v="false" aria-label="错误">×</button>
+    </div>
+    <div class="note" id="q4note" hidden>
+      <p class="note-main">正确答案：×。</p>
+      <p>实际记到了现在。</p>
+    </div>
+  </section>
+
+  <section class="q reveal" id="q5">
+    <div class="q-head"><span class="q-no">5.</span><span class="q-type">压轴题</span><span class="pts">（129 分）</span></div>
+    <p class="q-body">已知函数 f(x) 的图像如下，求 f(x) 的解析式。</p>
+
+    <div class="graph-card">
+      <svg id="graph" viewBox="0 0 360 300" role="img" aria-label="手电筒照着一张摊开的试卷">
+        <defs>
+          <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#466e96" stroke-opacity=".11" stroke-width="1"/>
+          </pattern>
+          <linearGradient id="beamGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#f0c25c" stop-opacity=".55"/>
+            <stop offset=".55" stop-color="#f0c25c" stop-opacity=".22"/>
+            <stop offset="1" stop-color="#f0c25c" stop-opacity=".03"/>
+          </linearGradient>
+          <radialGradient id="spotGrad">
+            <stop offset="0" stop-color="#ffe9a8" stop-opacity=".75"/>
+            <stop offset="1" stop-color="#ffe9a8" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="2.2"/>
+          </filter>
+        </defs>
+
+        <rect width="360" height="300" fill="url(#grid)"/>
+
+        <!-- 桌沿 -->
+        <path class="draw" d="M 12 258 L 348 258" style="--d:.10s"/>
+
+        <!-- 摊开的试卷 -->
+        <path class="draw sheet" d="M 88 178 L 236 178 L 272 252 L 52 252 Z" style="--d:.35s"/>
+        <path class="draw faint" d="M 84 191 L 242 191" style="--d:.62s"/>
+        <path class="draw faint" d="M 79 206 L 248 206" style="--d:.72s"/>
+        <path class="draw faint" d="M 73 221 L 254 221" style="--d:.82s"/>
+        <path class="draw faint" d="M 67 236 L 260 236" style="--d:.92s"/>
+        <path class="draw redline" d="M 82 182 L 58 248" style="--d:1.02s"/>
+
+        <!-- 手电筒 -->
+        <path class="draw torch" d="M 26 96 L 110 130 L 104 152 L 20 118 Z" style="--d:1.10s"/>
+        <path class="draw torch" d="M 110 130 L 124 136 L 118 160 L 104 152 Z" style="--d:1.24s"/>
+        <ellipse class="draw" cx="121" cy="148" rx="4" ry="12" transform="rotate(15 121 148)" style="--d:1.38s"/>
+        <path class="draw faint" d="M 52 110 L 58 124" style="--d:1.46s"/>
+        <path class="draw faint" d="M 26 96 L 20 118" style="--d:1.52s"/>
+
+        <!-- 光锥 -->
+        <path class="beam" d="M 124 136 L 60 236 L 215 224 L 118 160 Z" filter="url(#soft)"/>
+        <path class="draw" d="M 124 136 L 60 236" style="--d:1.62s"/>
+        <path class="draw" d="M 118 160 L 215 224" style="--d:1.62s"/>
+
+        <!-- 光斑与字 -->
+        <ellipse class="spot" cx="140" cy="228" rx="66" ry="15" transform="rotate(-5 140 228)" fill="url(#spotGrad)" filter="url(#soft)"/>
+        <text class="hand-text" x="140" y="235" text-anchor="middle" transform="rotate(-4 140 235)">谢谢您</text>
+      </svg>
+    </div>
+    <p class="graph-caption">（作图：参数方程）</p>
+
+    <div class="note q5-note" id="q5note" hidden>
+      <p class="note-main">解：定义域 2021—2024，值域是此后每一次想起。</p>
+      <p>（此题无标准答案，您给的都算对。）</p>
+    </div>
+  </section>
+
+  <div class="submit-wrap">
+    <button class="submit-btn" id="submitBtn">交 卷</button>
+  </div>
+
+  <section class="ending reveal" id="ending">
+    <div class="stamp-wrap">
+      <div class="stamp-score"><small>满分</small><strong>150<span>/150</span></strong></div>
+    </div>
+    <p class="comment-hand">这道题，我记了三年。<br>聂老师，生日快乐。</p>
+    <div class="letter">
+      <p>聂老师：</p>
+      <p>您可能不记得那个晚自习后的晚上了。</p>
+      <p>宿舍熄灯，您打着手电筒，又讲了三四十分钟。</p>
+      <p>我记得。</p>
+      <p>一模我在本科线下，高考我到了一本线上。这中间隔着很多个晚上，第一个是您给的。</p>
+      <p>听说您现在在淮安。祝您 42 岁生日快乐——往后每一届学生，都像我一样记得您。</p>
+      <p class="sign">2024届高三(16)班　董晨曦</p>
+    </div>
+    <p class="final-line">11 月 11 日，四个 1，是今天唯一不需要证明的等式。</p>
+  </section>
+</main>
+
+<script>
+(function(){
+  var $ = function(s, r){ return (r || document).querySelector(s); };
+  var $$ = function(s, r){ return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+
+  function showNote(el){
+    if(!el || !el.hidden) return;
+    el.hidden = false;
+    requestAnimationFrame(function(){ el.classList.add('in'); });
+  }
+
+  function observe(el, cb, opts){
+    if('IntersectionObserver' in window){
+      var o = new IntersectionObserver(cb, opts);
+      o.observe(el);
+      return o;
+    }
+    setTimeout(function(){ cb([{ isIntersecting: true, target: el }]); }, 0);
+    return null;
+  }
+
+  $$('.reveal').forEach(function(el){
+    observe(el, function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting) en.target.classList.add('in');
+      });
+    }, { threshold: 0.2 });
+  });
+
+  $('#startBtn').addEventListener('click', function(){
+    $('#startBtn').classList.add('done');
+    setTimeout(function(){
+      $('#q1').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }, 170);
+  });
+
+  $$('#q1 .opt').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      if(btn.dataset.correct === 'true'){
+        btn.classList.add('correct');
+        showNote($('#q1note'));
+      } else {
+        btn.classList.add('wrong');
+        setTimeout(function(){ btn.classList.remove('wrong'); }, 500);
+      }
+    });
+  });
+
+  var blank = $('#blankInput');
+  var blankDone = false;
+  function revealBlank(){
+    if(blankDone) return;
+    blankDone = true;
+    var ans = $('#q2answer');
+    ans.hidden = false;
+    requestAnimationFrame(function(){ ans.classList.add('in'); });
+    $('#revealBlank').hidden = true;
+  }
+  blank.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); blank.blur(); revealBlank(); }
+  });
+  blank.addEventListener('blur', function(){
+    if(blank.value.trim()) revealBlank();
+  });
+  $('#revealBlank').addEventListener('click', revealBlank);
+  setTimeout(function(){
+    if(!blankDone) $('#revealBlank').hidden = false;
+  }, 8000);
+
+  $$('#q4 .tf-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      if(btn.dataset.v === 'false'){
+        btn.classList.add('correct');
+        showNote($('#q4note'));
+      } else {
+        btn.classList.add('wrong');
+        setTimeout(function(){ btn.classList.remove('wrong'); }, 500);
+      }
+    });
+  });
+
+  var q5 = $('#q5');
+  var q5Done = false;
+  function revealQ5Note(){
+    if(q5Done) return;
+    q5Done = true;
+    showNote($('#q5note'));
+  }
+  observe($('.graph-card'), function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        q5.classList.add('graph-in');
+        setTimeout(revealQ5Note, 3600);
+      }
+    });
+  }, { threshold: 0.55 });
+
+  function stampScore(){
+    var s = $('#headScore');
+    if(s.textContent === '150') return;
+    s.textContent = '150';
+    s.classList.add('written');
+  }
+
+  $('#submitBtn').addEventListener('click', function(){
+    $('#ending').classList.add('in');
+    stampScore();
+    $('#ending').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  observe($('#ending'), function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting) stampScore();
+    });
+  }, { threshold: 0.15 });
+
+  // 静态预览模式：?static=1 时直接展开全部内容，便于截图检查
+  if(location.search.indexOf('static') > -1){
+    document.body.classList.add('static');
+    $$('.reveal').forEach(function(el){ el.classList.add('in'); });
+    q5.classList.add('graph-in');
+    ['#q1note','#q2answer','#q4note','#q5note'].forEach(function(sel){
+      var el = $(sel);
+      if(el){ el.hidden = false; el.classList.add('in'); }
+    });
+    stampScore();
+  }
+})();
+</script>
+</body>
+</html>
